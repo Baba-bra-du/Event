@@ -34,16 +34,8 @@ function getUserInfo() {
                 return layer.msg('获取用户信息失败');
             }
             renderAvatar(res.data)
-        },
-        // 不管成功失败都会执行此函数
-        complete: function (res) {
-            if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败!') {
-                // 1.强制清空本地 token
-                localStorage.removeItem('token');
-                // 2.强制跳转到登录界面
-                location.href('/login.html');
-            }
         }
+        
     })
 }
 
